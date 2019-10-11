@@ -1,0 +1,238 @@
+\documentclass[10pt,a4paper]{article}
+
+%_______Llamo paquetes_____________________
+\usepackage[margin=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{setspace}
+
+%_______Formato y títulos__________________
+
+
+\author{Federico E. Benelli}
+\title{" Python Basics for Data Science" - Resumen escrito en \LaTeX{}}
+
+\renewcommand*\contentsname{Tabla de contenidos}
+\onehalfspacing
+
+\setlength{\columnseprule}{1pt}
+
+%_______Comienzo el documento______________
+
+
+\begin{document}
+
+\maketitle
+\tableofcontents{}
+\newpage
+
+\section{Introducción}
+Python es un lenguaje de programación
+
+\section{Basics}
+
+\subsection{Tipos básicos de datos}
+
+\begin{description}[
+align=right,
+labelindent = 1cm,
+labelsep=0.5cm,
+itemindent=0cm]
+
+\item [Integer]Números enteros
+\item [Float]Números flotantes. Es como se denomina a los números decimales en programación, esta denominación viene dada porque por defecto las computadoras no realizan con total precisión cálculos de fracciones. Por ejemplo, si en la consola de Python se escribe "0.1 + 0.2" esta devolverá "0.30000000000000004" en lugar del esperado "0.3" (explicación más detallada en https://www.youtube.com/watch?v=PZRI1IfStY0)
+\item [String]Strings son secuencias de caracteres (usualmente texto), se escriben entre " " o ' ', también se pueden hacer bloques de texto entre """ """
+\item [Boolean] Son los booleanos "True" y "False"
+\end{description}
+
+\subsection{Funciones básicas de Python}
+Se describen las funciones básicas presentes en Python 3.7. 
+
+\begin{description}[align=right,labelwidth=1cm,labelsep=0.5cm, itemindent=0cm]
+
+
+\item [type(x)] Retorna el tipo de variable que es x, por ejemplo si realizo:
+
+    $>>$    type('texto de ejemplo')\\
+    $>>$$   <$class 'str'$>$
+
+\item [print(x)] Muestra en la consola la variable x, soporta muchos tipos de variables, no solo string
+
+    $>>$ print('texto de ejemplo')\\
+    $>>$ texto de ejemplo
+
+\item [round(x)] Redondea el valor de un número flotante x, por defecto redondea totalmente
+
+    $>>$ round(2.53)\\
+    $>>$ 3\\
+    $>>$ round(2.53,1)\\
+    $>>$ 2.5
+
+\item [float(x)] Retorna el valor de x convertido en tipo número flotante, puede recibir íntegros o strings, siempre y cuando la string sea solo un número.
+
+    $>>$ float("2")\\
+    $>>$ 2.0
+    
+\item [int(x)] Retorna el valor íntegro de x, solo puede recibir variables del tipo float o string si es que esta es solo un int. Si utilizo la función int en el booleano "True" obtengo un 1, y si lo realizo en el booleano "False" obtengo un 0
+    $>>$ int(2.731)\\
+    $>>$ 2
+    
+
+\end{description}
+
+\subsection{Expresiones en Python}
+En Python pueden realizarse las operaciones básicas de matemáticas, utilizando '*' y '**' para la multiplicación y potenciam, respectivamente. Además se pueden utilizar el símbolo '\%' para obtener el resto de una división y '//' para obtener el cociente entero. En el caso de strings, estas también pueden ser sumadas y multiplicadas por un íntegro.
+
+\begin{multicols}{4}[Ejemplos]
+\noindent
+$>>$ 5+5\\
+$>>$ 10\\~\\
+$>>$ "abc"+"def"\\
+\columnbreak
+$>>$ "abcdef"\\
+$>>$ 5-5\\
+$>>$ 0\\~\\
+$>>$ 5*5\\
+\columnbreak
+$>>$ 10\\
+$>>$ 5/5\\
+$>>$ 1\\~\\
+$>>$ 5**5\\
+\columnbreak
+$>>$ 125\\
+$>>$ 25\%4\\
+$>>$ 1\\~\\
+$>>$ 25//4\\
+$>>$ 6
+\end{multicols}
+
+
+\subsection{Variables en Python}
+Las variables se utilizan para almacenar valores, los cuales pueden ser reutilizados luego, las variables también pueden almacenar el resultado de expresiones.\\ \\
+    \noindent
+    $>>$ variables = 25 + 25\\
+    $>>$ variable\\
+    $>>$ 50
+
+Si cambio el valor de una variable, esto afectara el valor de otras variables que la incluyan\\ \\
+    \noindent
+    $>>$ variable1 = 25\\
+    $>>$ variable2 = variable1+25\\
+    $>>$ variable2\\
+    $>>$ 50\\ \\
+    Al reasignar variable1 y volver a llamar a variable2\\ \\
+    $>>$ variable1 = 50\\
+    $>>$ variable2\\
+    $>>$ 75
+
+\section{Data Structure}
+
+\subsection{Tipos de estructuras de datos}
+
+\begin{description}[
+align=right,
+labelindent = 1cm,
+labelsep=0.5cm,
+itemindent=0cm]
+
+    \item [list] 
+        Las listas son conjuntos ordenados de valores de cualquier tipo de dato, se expresan como [dato1, dato2, dato3, etc].\\
+        Se almacenan como variables y pueden contener variables dentro de ellas.
+    
+        \noindent
+        $>>$ variable1 = 25\\
+        $>>$ variable2 = variable1+25\\
+        $>>$ lista = [variable1, variable2, 'tercer elemento', 4.23]\\~\\
+        
+        Los elementos de las listas se llaman de la siguiente manera:
+            
+        \begin{description}[leftmargin=!,labelwidth=2.5cm,itemindent=0cm]
+            \item [{$>>$ lista[0]}] \textit{Llamado al primer elemento de la lista, en Python todos los contadores comienzan en cero, devuelve 25}
+            \item [{$>>$ lista[-1]}] \textit{Llamado al último elemento de la lista, devuelve 4.23}
+            \item [{$>>$ lista[1:3]}] \textit{Llama a los elementos del 1 al 3 de la lista, en este caso devuelve \emph{[50, 'tercer elemento', 4.23]}}
+            \item [{$>>$ lista[a:b:c]}] \textit{Llama a los elementos de 'a' a 'b', yendo de c en c, si no se dan valores de a y/o b se considera la lista completa, \emph{lista[::2]} devuelve \emph{[25,'tercer elemento']}, si el valor de c es negativo el conteo será de fin a principio}
+        \end{description}
+    
+        Las listas son mutables, eso quiere decir que sus elementos pueden ser modificados.\\
+        $>>$ lista = [1, 2, 3]\\
+        $>>$ lista[1] = 25\\
+        $>>$ lista\\
+        $>>$ [25, 2, 3]\\~\\
+        Si defino una variable a una lista y luego otra variable a esa variable, cualquier cambio que le realice a la lista de la primer variable también será realizado en la segunda variable, esto ocurre debido a que ambas variables apuntan a la misma lista ubicada en la memoria.\\
+        $>>$ lista1 = [1, 2, 3]\\
+        $>>$ lista2 = lista1\\
+        $>>$ lista1[1] = 23\\
+        $>>$ lista2\\
+        $>>$ [1, 23, 3]\\~\\
+        Esto puede ser evitado 'clonando' a la primer variable, esto se realiza llamando a todos los elementos de la primer variable al momento de definir la segunda\\
+        $>>$ lista1 = [1, 2, 3]\\
+        $>>$ lista2 = lista1[:]\\~\\
+        \textbf{Métodos aplicables en listas}
+        \begin{description}
+            \item [lista.extend(iterable)] Añade los elementos de un iterable a una lista.
+            \item [lista.append(object)] Añade el objeto al final de la lista.
+        \end{description}
+        \textit{Más métodos y funciones pueden consultarse con \emph{help(list())}}
+        
+    \item [tuple]
+        Las tuplas son similares a las listas, solo que se definen entre paréntesis (elemento1, elemento2, elemento3, etc) y son inmutables, por lo que una vez que son definidas no pueden ser modificadas.\\ Los elementos de las tuplas se llaman de igual manera que en las listas.
+    
+    \item [set]
+        Son conjuntos de elementos que no poseen un orden en particular, se definen como {elemento1, elemento2, etc}, pueden ser vistas como conjuntos de \emph{Venn}. Los elementos repetidos se eliminan automáticamente\\
+        
+        \textbf{Métodos}
+        \begin{description}
+            \item [set.add(element)] Añade el elemento al set.
+            \item [set.remove(element)] Remueve el elemento del set.
+            \item [set1.intersection(set2)] Devuelve un set con la intersección de ambos sets.
+            \item [set1.union(set2)] Devuelve un set con la unión de ambos sets.
+            \item [set1.difference(set2)] Devuelve un set con los elementos fuera de la intersección de ambos sets.
+            \item [set1.issubset(set2)] Devuelve True o False dependiendo si es subset o no.
+            \item [set1.issuperset(set2)] Equivalente al anterior
+        \end{description}
+        \textit{Más métodos pueden hallarse con \emph{help(set())}}
+    
+    \item [dictionary]
+        Los diccionarios son conjuntos de elementos con índices para facilitar el acceso a los elementos. Se definen como \{"índice1":\{elemento1,elemento2\},"índice2":\{elemento3, elemento4\}\}
+     Los elementos de los diccionarios se definen y llaman de la siguiente manera:
+            
+        \begin{description}[leftmargin=!,labelwidth=2.5cm,itemindent=0cm]
+            \item [{$>>$ dic['índice1'] = \{elemento1,elemento2\}}] Asigna el conjunto de elementos al índice 1, si el índice 1 no existía aún lo crea automáticamente.
+            \item [{$>>$ dic['índice1']}]   Devuelve los elementos correspondientes al índice 1, {elemento1, elemento2} 
+        \end{description}
+
+\end{description}
+
+\section{Programming Fundamentals}
+
+\subsection{Condiciones}
+
+
+
+\subsection{Loops}
+
+\subsection{Funciones}
+
+\subsection{Objetos y clases}
+
+\section{Working with Data}
+
+\subsection{Leyendo y escribiendo archivos}
+\subsection{Cargar data con Pandas}
+
+\section{Working with numpy arrays}
+
+
+
+\begin{thebibliography}{9}
+
+\bibitem{edXcourse1}
+  IBM,
+  \textit{ IBM: PY0101EN Python Basics for Data Science},
+  edX.org,
+  2017.
+
+\end{thebibliography}
+
+\end{document}
