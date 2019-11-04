@@ -24,7 +24,7 @@
 \begin{document}
 
 \maketitle
-\tableofcontents{}
+\tableofcontents
 \newpage
 
 \section{Introducción}
@@ -89,18 +89,21 @@ En Python pueden realizarse las operaciones básicas de matemáticas, utilizando
 $>>$ 5+5\\
 $>>$ 10\\~\\
 $>>$ "abc"+"def"\\
-\columnbreak
 $>>$ "abcdef"\\
+\vfill\null \columnbreak
+\noindent
 $>>$ 5-5\\
 $>>$ 0\\~\\
 $>>$ 5*5\\
-\columnbreak
 $>>$ 10\\
+\vfill\null \columnbreak
+\noindent
 $>>$ 5/5\\
 $>>$ 1\\~\\
 $>>$ 5**5\\
-\columnbreak
 $>>$ 125\\
+\vfill\null \columnbreak
+\noindent
 $>>$ 25\%4\\
 $>>$ 1\\~\\
 $>>$ 25//4\\
@@ -209,8 +212,46 @@ itemindent=0cm]
 \subsection{Condiciones}
 
 
+	En Python pueden realizarse distintos tipos de comparaciones entre objetos/expresiones, las cuales devuelven un valor booleano del tipo \emph{True} o \emph{False} dependiendo de la comparación.\\
+	Los distintos tipos de comparaciones que se pueden realizar en Python son:\\
+	\begin{description}[leftmargin=!, labelwidth=2.5cm,itemindent=0cm]
+		\item [A $>$ B] Devuelve \emph{True} si A es mayor que B
+		\item [A $<$ B] Devuelve \emph{True} si A es menor que B
+		\item [A == B] Devuleve \emph{True} si A es igual a B (funciona con cualquier tipo de objeto, no solo números)
+		\item [A != B] Devuelve \emph{True} si A es distinto a B (con cualquier tipo de objeto) 
+		\item [A $>=$ B] Devuelve \emph{True} si A es mayor o igual a B
+		\item [A $<=$ B] Devuelve \emph{True} si A es menor o igual a B
+	\end{description}
+
+\noindent Estas comparaciones son útiles a la hora de condicionar la ejecución de parte del código, así esta parte solo es ejecutada si y solo si cumple con cierta condición. para esto se utiliza la declaración \emph{if} de la siguiente manera:.\\
+	\textbf{if \emph{condicion}:}\\
+	....código a utilizar si se cumple la condición\\
+	\textbf{else:}\\
+	....código a utilizar si la condición no se cumple (opcional)\\
 
 \subsection{Loops}
+Los loops son formas de simplificar código que va a repetirse reiteradas veces o de manera iterativa, también facilitando su modificación en el caso de que sea necesario, por ejemplo, existen dos maneras de hacer que un código repita 5 veces el comando \emph{print("Hello, world!")}:
+\begin{multicols}{2}
+	\noindent print("Hello, world")\\
+	print("Hello, world")\\
+	print("Hello, world")\\
+	print("Hello, world")\\
+	print("Hello, world")\\ 
+	\vfill\null \columnbreak
+	\noindent for i in range(0,5):\\
+	....print("Hello, world!")
+\end{multicols}
+\noindent Siguiendo con el ejemplo, si se quisiera cambiar el código por uno el cual la línea se escriba 20 veces en el primer caso sería necesario reescribir esa misma linea 15 veces más cuando en el segundo caso con simplemente cambiar el número "5" por un "20". Queda claro que la segunda opción es mucho más simple, y al mismo tiempo estas complejidades incrementan exponencialmente si el código se vuelve más complejo.
+
+\begin{description}[
+align=right,
+labelindent = 1cm,
+labelsep=0.5cm,
+itemindent=0cm]
+	\item [while] La declaración \emph{while} se utiliza de manera similar a la declaración \emph{if}, funciona con una condición y, a diferencia de la declaración \emph{if} que reproduce el código una sola vez, esta repite el bloque de código hasta que la condición sea \emph{True}
+	\item [for] La declaración \emph{for} funciona designando valores a una nueva variable dentro de esta, reasignándole valores en función de un objeto iterable.
+\end{description}
+
 
 \subsection{Funciones}
 
