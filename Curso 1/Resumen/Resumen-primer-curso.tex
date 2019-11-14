@@ -3,9 +3,43 @@
 %_______Llamo paquetes_____________________
 \usepackage[margin=2cm]{geometry}
 \usepackage[utf8]{inputenc}
-\usepackage{enumitem}
-\usepackage{multicol}
+\usepackage{enumitem}			%Descripciones
+\usepackage{multicol}			%Columnas
 \usepackage{setspace}
+\usepackage{listings}			%Formato código
+\usepackage{xcolor}
+
+%_______Configuro el paquete de listing____
+\lstset{language=Python}
+\lstset{frame=lines}
+\lstset{label={lst:code_direct}}
+\lstset{basicstyle=\footnotesize}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+ 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+
 
 %_______Formato y títulos__________________
 
@@ -15,8 +49,8 @@
 
 \renewcommand*\contentsname{Tabla de contenidos}
 \onehalfspacing
-
-\setlength{\columnseprule}{1pt}
+\setlength{\columnseprule}{0.75pt}
+\setlength{\columnsep}{3em}
 
 %_______Comienzo el documento______________
 
@@ -53,30 +87,28 @@ Se describen las funciones básicas presentes en Python 3.7.
 
 
 \item [type(x)] Retorna el tipo de variable que es x, por ejemplo si realizo:
-
-    $>>$    type('texto de ejemplo')\\
-    $>>$$   <$class 'str'$>$
-
+\begin{lstlisting}
+>> type('texto de ejemplo')
+>> <class 'str'>\end{lstlisting}
 \item [print(x)] Muestra en la consola la variable x, soporta muchos tipos de variables, no solo string
-
-    $>>$ print('texto de ejemplo')\\
-    $>>$ texto de ejemplo
-
+\begin{lstlisting}
+>> print('texto de ejemplo')
+>> texto de ejemplo\end{lstlisting}
 \item [round(x)] Redondea el valor de un número flotante x, por defecto redondea totalmente
-
-    $>>$ round(2.53)\\
-    $>>$ 3\\
-    $>>$ round(2.53,1)\\
-    $>>$ 2.5
-
+\begin{lstlisting}
+>> round(2.53)
+>> 3
+>> round(2.53,1)
+>> 2.5\end{lstlisting}
 \item [float(x)] Retorna el valor de x convertido en tipo número flotante, puede recibir íntegros o strings, siempre y cuando la string sea solo un número.
-
-    $>>$ float("2")\\
-    $>>$ 2.0
+\begin{lstlisting}
+>> float("2")
+>> 2.0\end{lstlisting}
     
 \item [int(x)] Retorna el valor íntegro de x, solo puede recibir variables del tipo float o string si es que esta es solo un int. Si utilizo la función int en el booleano "True" obtengo un 1, y si lo realizo en el booleano "False" obtengo un 0
-    $>>$ int(2.731)\\
-    $>>$ 2
+	\begin{lstlisting}
+	>> int(2.731)
+	>> 2\end{lstlisting}
     
 
 \end{description}
@@ -86,48 +118,56 @@ En Python pueden realizarse las operaciones básicas de matemáticas, utilizando
 
 \begin{multicols}{4}[Ejemplos]
 \noindent
-$>>$ 5+5\\
-$>>$ 10\\~\\
-$>>$ "abc"+"def"\\
-$>>$ "abcdef"\\
+	\begin{lstlisting}
+>> 5+5
+>> 10
+>> "abc"+"def"
+>> "abcdef"\end{lstlisting}
 \vfill\null \columnbreak
 \noindent
-$>>$ 5-5\\
-$>>$ 0\\~\\
-$>>$ 5*5\\
-$>>$ 10\\
+\begin{lstlisting}
+>> 5-5
+>> 0
+>> 5*5
+>> 10
+\end{lstlisting}
 \vfill\null \columnbreak
 \noindent
-$>>$ 5/5\\
-$>>$ 1\\~\\
-$>>$ 5**5\\
-$>>$ 125\\
+
+	\begin{lstlisting}	
+>> 5/5
+>> 1
+>> 5**5
+>> 125\end{lstlisting}
 \vfill\null \columnbreak
-\noindent
-$>>$ 25\%4\\
-$>>$ 1\\~\\
-$>>$ 25//4\\
-$>>$ 6
+
+	\begin{lstlisting}
+>> 25%4
+>> 1
+>> 25//4
+>> 6\end{lstlisting}
 \end{multicols}
 
 
 \subsection{Variables en Python}
-Las variables se utilizan para almacenar valores, los cuales pueden ser reutilizados luego, las variables también pueden almacenar el resultado de expresiones.\\ \\
-    \noindent
-    $>>$ variables = 25 + 25\\
-    $>>$ variable\\
-    $>>$ 50
+Las variables se utilizan para almacenar valores, los cuales pueden ser reutilizados luego, las variables también pueden almacenar el resultado de expresiones.
+\begin{lstlisting}
+>> variables = 25 + 25
+>> variable
+>> 50\end{lstlisting}
 
-Si cambio el valor de una variable, esto afectara el valor de otras variables que la incluyan\\ \\
-    \noindent
-    $>>$ variable1 = 25\\
-    $>>$ variable2 = variable1+25\\
-    $>>$ variable2\\
-    $>>$ 50\\ \\
-    Al reasignar variable1 y volver a llamar a variable2\\ \\
-    $>>$ variable1 = 50\\
-    $>>$ variable2\\
-    $>>$ 75
+Si cambio el valor de una variable, esto afectara el valor de otras variables que la incluyan
+\begin{lstlisting}
+>> variable1 = 25
+>> variable2 = variable1+25
+>> variable2
+>> 50
+\end{lstlisting}
+Al reasignar variable1 y volver a llamar a variable2
+\begin{lstlisting}
+>> variable1 = 50
+>> variable2
+>> 75\end{lstlisting}
 
 \section{Data Structure}
 
@@ -143,37 +183,40 @@ itemindent=0cm]
         Las listas son conjuntos ordenados de valores de cualquier tipo de dato, se expresan como [dato1, dato2, dato3, etc].\\
         Se almacenan como variables y pueden contener variables dentro de ellas.
     
-        \noindent
-        $>>$ variable1 = 25\\
-        $>>$ variable2 = variable1+25\\
-        $>>$ lista = [variable1, variable2, 'tercer elemento', 4.23]\\~\\
-        
-        Los elementos de las listas se llaman de la siguiente manera:
+\begin{lstlisting}
+>> variable1 = 25
+>> variable2 = variable1+25
+>> lista = [variable1, variable2, 'tercer elemento', 4.23]\end{lstlisting} 
+Los elementos de las listas se llaman de la siguiente manera:
             
-        \begin{description}[leftmargin=!,labelwidth=2.5cm,itemindent=0cm]
+	\begin{description}[leftmargin=!,labelwidth=2.5cm,itemindent=0cm]
             \item [{$>>$ lista[0]}] \textit{Llamado al primer elemento de la lista, en Python todos los contadores comienzan en cero, devuelve 25}
             \item [{$>>$ lista[-1]}] \textit{Llamado al último elemento de la lista, devuelve 4.23}
             \item [{$>>$ lista[1:3]}] \textit{Llama a los elementos del 1 al 3 de la lista, en este caso devuelve \emph{[50, 'tercer elemento', 4.23]}}
             \item [{$>>$ lista[a:b:c]}] \textit{Llama a los elementos de 'a' a 'b', yendo de c en c, si no se dan valores de a y/o b se considera la lista completa, \emph{lista[::2]} devuelve \emph{[25,'tercer elemento']}, si el valor de c es negativo el conteo será de fin a principio}
-        \end{description}
-    
-        Las listas son mutables, eso quiere decir que sus elementos pueden ser modificados.\\
-        $>>$ lista = [1, 2, 3]\\
-        $>>$ lista[1] = 25\\
-        $>>$ lista\\
-        $>>$ [25, 2, 3]\\~\\
-        Si defino una variable a una lista y luego otra variable a esa variable, cualquier cambio que le realice a la lista de la primer variable también será realizado en la segunda variable, esto ocurre debido a que ambas variables apuntan a la misma lista ubicada en la memoria.\\
-        $>>$ lista1 = [1, 2, 3]\\
-        $>>$ lista2 = lista1\\
-        $>>$ lista1[1] = 23\\
-        $>>$ lista2\\
-        $>>$ [1, 23, 3]\\~\\
-        Esto puede ser evitado 'clonando' a la primer variable, esto se realiza llamando a todos los elementos de la primer variable al momento de definir la segunda\\
-        $>>$ lista1 = [1, 2, 3]\\
-        $>>$ lista2 = lista1[:]\\~\\
-        \textbf{Métodos aplicables en listas}
-        \begin{description}
-            \item [lista.extend(iterable)] Añade los elementos de un iterable a una lista.
+	\end{description}
+   
+Las listas son mutables, eso quiere decir que sus elementos pueden ser modificados.\\
+\begin{lstlisting}
+>> lista = [1, 2, 3]
+>> lista[1] = 25
+>> lista
+>> [25, 2, 3]\end{lstlisting}
+
+		Si defino una variable a una lista y luego otra variable a esa variable, cualquier cambio que le realice a la lista de la primer variable también será realizado en la segunda variable, esto ocurre debido a que ambas variables apuntan a la misma lista ubicada en la memoria.\\
+\begin{lstlisting}
+>> lista1 = [1, 2, 3]
+>> lista2 = lista1
+>> lista1[1] = 23
+>> lista2
+>> [1, 23, 3]\end{lstlisting}
+	Esto puede ser evitado 'clonando' a la primer variable, esto se realiza llamando a todos los elementos de la primer variable al momento de definir la segunda\\
+\begin{lstlisting}
+>> lista1 = [1, 2, 3]
+>> lista2 = lista1[:]\end{lstlisting}
+\textbf{Métodos aplicables en listas}
+\begin{description}
+	    \item [lista.extend(iterable)] Añade los elementos de un iterable a una lista.
             \item [lista.append(object)] Añade el objeto al final de la lista.
         \end{description}
         \textit{Más métodos y funciones pueden consultarse con \emph{help(list())}}
@@ -223,51 +266,94 @@ itemindent=0cm]
 		\item [A $<=$ B] Devuelve \emph{True} si A es menor o igual a B
 	\end{description}
 
-\noindent Estas comparaciones son útiles a la hora de condicionar la ejecución de parte del código, así esta parte solo es ejecutada si y solo si cumple con cierta condición. para esto se utiliza la declaración \emph{if} de la siguiente manera:.\\
-	\textbf{if \emph{condicion}:}\\
-	....código a utilizar si se cumple la condición\\
-	\textbf{else:}\\
-	....código a utilizar si la condición no se cumple (opcional)\\
-
+\noindent Estas comparaciones son útiles a la hora de condicionar la ejecución de parte del código, así esta parte solo es ejecutada si y solo si cumple con cierta condición. para esto se utiliza la declaración \emph{if} de la siguiente manera:.
+	\begin{lstlisting}
+	if condicion:
+	    codigo a utilizar si se cumple la condicion
+	else:
+	    codigo a utilizar si la condicion no se cumple #opcional\end{lstlisting}
 \subsection{Loops}
 Los loops son formas de simplificar código que va a repetirse reiteradas veces o de manera iterativa, también facilitando su modificación en el caso de que sea necesario, por ejemplo, existen dos maneras de hacer que un código repita 5 veces el comando \emph{print("Hello, world!")}:
 \begin{multicols}{2}
-	\noindent print("Hello, world")\\
-	print("Hello, world")\\
-	print("Hello, world")\\
-	print("Hello, world")\\
-	print("Hello, world")\\ 
+
+	\begin{lstlisting}
+	print("Hello, world")
+	print("Hello, world")
+	print("Hello, world")
+	print("Hello, world")
+	print("Hello, world")\end{lstlisting}
 	\vfill\null \columnbreak
-	\noindent for i in range(0,5):\\
-	....print("Hello, world!")
+	\noindent
+	\begin{lstlisting}
+	for i in range(0,5):
+		print("Hello, world!")\end{lstlisting}
 \end{multicols}
 \noindent Siguiendo con el ejemplo, si se quisiera cambiar el código por uno el cual la línea se escriba 20 veces en el primer caso sería necesario reescribir esa misma linea 15 veces más cuando en el segundo caso con simplemente cambiar el número "5" por un "20". Queda claro que la segunda opción es mucho más simple, y al mismo tiempo estas complejidades incrementan exponencialmente si el código se vuelve más complejo.
 
 \begin{description}[
 align=right,
-labelindent = 1cm,
+labelindent=1cm,
 labelsep=0.5cm,
 itemindent=0cm]
 	\item [while] La declaración \emph{while} se utiliza de manera similar a la declaración \emph{if}, funciona con una condición y, a diferencia de la declaración \emph{if} que reproduce el código una sola vez, esta repite el bloque de código hasta que la condición sea \emph{True}
 	\item [for] La declaración \emph{for} funciona designando valores a una nueva variable dentro de esta, reasignándole valores en función de un objeto iterable.
 \end{description}
 
+\noindent Como se dijo previamente, la declaración \emph{for} designa un iterable, usualmente los iterables que se utilizan son:
+
+\begin{description}[labelsep=0.5cm, itemindent=0cm]
+
+	\item [list]
+		En el caso de declarar \emph{for element in list:}, la varibale \emph{element} tomará los valores de los elementos de la lista en la iteración. También puede utilizarse la función \emph{enumerate}, con la cual además de iterar sobre los valores de la lista se obtiene el índice de cada elemento, la declaración se realiza de la forma \emph{for i,element in enumerate(list):}  
+	\item [range(in,fin,step)]
+		La función \emph{range(in,fin,step)} devuelve un objeto iterable el cual consiste en un rango de números, donde \emph{in} es el número inicial, \emph{fin} el número final y \emph{step} el paso en el cual se realiza el conteo. La declaración será, por ejemplo la declaración \emph{for i in range(0,15,2):} asignará a \emph{i} los valores entre 0 y 15, de dos en dos. Nótese que el valor final jamás es alcanzado, por lo que si utilizo \emph{range(0,10)} se obtendrán los valores 0,1..9.
+	\item [dictionary]
+		Si se itera en un diccionario mediante la declaración \emph{for} la variable asignada obtendrá los valores de las \emph{"key"} del mismo, en formato \emph{string}
+
+\end{description}
+
+\noindent Nótese que si bien existen convenciones de utilizar el nombre de variable "i" en una declaración, no es una condición necesaria para que el código funcione, esta puede tomar cualquier nombre designado por el autor.
 
 \subsection{Funciones}
+En Python pueden utilizarse funciones para simplificar código que se repite en múltiples etapas. las funciones se declaran y llaman de la siguiente manera:
+
+\begin{lstlisting}
+def function(input1,inputb,...):
+    metodo a implementar
+    return result
+
+a = 2
+b = 3
+function(a,b)
+\end{lstlisting} 
+
+\noindent Una función aplica métodos al momento de ser llamada, las variables utilizadas dentro de ellas no afectan a las variables globales del código aunque pueden leerlas, pueden recibir elementos sobre los cual trabajar y devuelve un resultado (también puede aplicar un método que no devuelve resultado). Se pueden generar variables globales dentro de una función antecediendo a la misma con \emph{"global"}
+
+\begin{lstlisting}
+def function(input1,input2,...):
+    result = input1 + input2
+    global variable_nueva
+    variable_nueva = result + 10    
+    return result
+
+a = 2
+b = 3
+
+suma = function(a,b)
+
+print(suma)
+>> 5
+print(variable_nueva)
+>> 15
+\end{lstlisting} 
+
 
 \subsection{Objetos y clases}
-
 \section{Working with Data}
-
 \subsection{Leyendo y escribiendo archivos}
 \subsection{Cargar data con Pandas}
-
 \section{Working with numpy arrays}
-
-
-
 \begin{thebibliography}{9}
-
 \bibitem{edXcourse1}
   IBM,
   \textit{ IBM: PY0101EN Python Basics for Data Science},
