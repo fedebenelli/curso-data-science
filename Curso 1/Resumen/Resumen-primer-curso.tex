@@ -9,7 +9,8 @@
 \usepackage{listings}			%Formato código
 \usepackage{xcolor}
 \usepackage[spanish,mexico]{babel}
-\usepackage{hyperref}           %Vínculos clickeables
+\usepackage[hidelinks]{hyperref}           %Vínculos clickeables
+\hypersetup{colorlinks=false}
 %_______Configuro el paquete de listing____
 \lstset{language=Python}
 \lstset{frame=lines}
@@ -297,9 +298,9 @@ itemindent=0cm]
 \begin{description}[labelsep=0.5cm, itemindent=0cm]
 
 \item [list]
-En el caso de declarar \emph{for element in list:}, la varibale \emph{element} tomará los valores de los elementos de la lista en la iteración. También puede utilizarse la función \emph{enumerate}, con la cual además de iterar sobre los valores de la lista se obtiene el índice de cada elemento, la declaración se realiza de la forma \emph{for i,element in enumerate(list):}  
+En el caso de declarar \textbf{\emph{for element in list:}}, la varibale \emph{element} tomará los valores de los elementos de la lista en la iteración. También puede utilizarse la función \emph{enumerate}, con la cual además de iterar sobre los valores de la lista se obtiene el índice de cada elemento, la declaración se realiza de la forma \emph{for i,element in enumerate(list):}  
 \item [range(in,fin,step)]
-La función \emph{range(in,fin,step)} devuelve un objeto iterable el cual consiste en un rango de números, donde \emph{in} es el número inicial, \emph{fin} el número final y \emph{step} el paso en el cual se realiza el conteo. La declaración será, por ejemplo la declaración \emph{for i in range(0,15,2):} asignará a \emph{i} los valores entre 0 y 15, de dos en dos. Nótese que el valor final jamás es alcanzado, por lo que si utilizo \emph{range(0,10)} se obtendrán los valores 0,1..9.
+La función \emph{range(in,fin,step)} devuelve un objeto iterable el cual consiste en un rango de números, donde \emph{in} es el número inicial, \emph{fin} el número final y \emph{step} el paso en el cual se realiza el conteo. La declaración será, por ejemplo la declaración \textbf{\emph{for i in range(0,15,2):}} asignará a \emph{i} los valores entre 0 y 15, de dos en dos. Nótese que el valor final jamás es alcanzado, por lo que si utilizo \emph{range(0,10)} se obtendrán los valores 0,1..9.
 \item [dictionary]
 Si se itera en un diccionario mediante la declaración \emph{for} la variable asignada obtendrá los valores de las \emph{"key"} del mismo, en formato \emph{string}
 \end{description}
@@ -439,8 +440,9 @@ with open(file, "w") as w:
 \subsection{Cargar data con Pandas}
 Pandas es una librería de Python con foco en estructuras de datos y herramientas de análisis de datos fáciles de utilizar y de alta performance.\cite{pandas}
 
-En Pandas se trabajo con objetos llamados \emph{DataFrames}, los cuales son equivalentes a las listas en Python, y usualmente se trata de tablas de dos dimensiones (similar a una tabla Excel)
-\subsubsection{}
+En Pandas se trabajo con objetos llamados \emph{DataFrames}, los cuales son equivalentes a las listas en Python, y usualmente se trata de tablas de dos dimensiones (similar a una tabla Excel). Los DataFrame de Pandas pueden ser generados a partir de listas, arrays de NumPy, entre otras con el siguiente método:
+
+\textbf{\emph{df = pd.DataFrame(fuente)}}
 \subsubsection{Métodos de Pandas}
 \begin{description}
 \item [df.head()] Devuelve las primeras 5 filas del DataFrame
@@ -449,8 +451,46 @@ En Pandas se trabajo con objetos llamados \emph{DataFrames}, los cuales son equi
 \item [{df.iloc[a:b, c:d]}] Devuelve los valores entre entre las filas a y b, y las columnas c y d; donde a, b, c y d son los valores de índice numéricos.
 \end{description}
 Más información puede consultarse en la documentación de Pandas \cite{pandasDoc}
-\section{Working with NumPy arrays}
+\subsection{Working with NumPy arrays}
+NumPy es una librería que facilita y acelera los cálculos de arrays N-Dimensionales, a simple vista se trabajan de manera muy similar a las listas. Un array de NumPy puede generarse de diversas maneras, siendo una de ellas la siguiente:
 
+\textbf{\emph{array = np.array(lista)}}
+
+\subsubsection{Atributos de NumPy array}
+\begin{description}
+\item [array.dtype] El tipo de datos que están contenidos en la array
+\item [array.size] El tamaño de la array (la cantidad de elementos totales)
+\item [array.ndim] Dimensión de la array
+\item [array.shape] Cantidad de elementos por dimensión de la array
+\end{description}
+
+\subsubsection{Operaciones matemáticas con NumPy arrays}
+
+\begin{description}[
+align=left,
+labelindent=1em ,
+labelwidth=4cm,
+labelsep*=0.1cm,
+leftmargin =!
+]
+\item [k + array] Devuelve un array producto de sumar el valor \emph{k} a cada elemento del array
+\item [array1 + array2] Devuelve un array donde cada elemento es la suma de los elementos de las array madres en sus respectivo orden
+\item [k * array] A cada elemento se lo multiplica por la misma constante
+\item [array1 * array2] Cada elemento de una array se multiplica por el de la otra array, respetando el orden.
+\item [np.dot(array1, array2)] Producto punto entre dos arrays
+\item [array.T] Array transpuesta
+\end{description}
+
+
+\subsubsection{Métodos de NumPy}
+\begin{description}
+\item [array.mean()] Promedio de todos los elementos presentes en el array
+\item [array.min()] Mínimo elemento presente en el array
+\item [array.max()] Máximo elemento presente en el array
+\item [array.std()] Desviación estándar de los elementos del array
+\end{description}
+
+Más información puede ser consultada en la documentación de NumPy \cite{numpyDoc}
 \begin{thebibliography}{9}
 
 \bibitem{edXcourse1}
@@ -468,6 +508,10 @@ url=https://pandas.pydata.org/
 Pandas Documentation,
 PyData.org,
 url=\url{https://pandas.pydata.org/pandas-docs/stable/}
+\bibitem{numpyDoc}
+NumPy Documentation,
+numpy.org,
+url=\url{https://numpy.org/devdocs/}
 
 \end{thebibliography}
 \end{document}
