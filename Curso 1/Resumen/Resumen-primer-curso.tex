@@ -89,26 +89,26 @@ Se describen las funciones básicas presentes en Python 3.7.
 
 
 \item [type(x)] Retorna el tipo de variable que es x, por ejemplo si realizo:
-\begin{lstlisting}
+\begin{lstlisting}[{caption=type}]
 >> type('texto de ejemplo')
 >> <class 'str'>\end{lstlisting}
 \item [print(x)] Muestra en la consola la variable x, soporta muchos tipos de variables, no solo string
-\begin{lstlisting}
+	\begin{lstlisting}[caption={print}]
 >> print('texto de ejemplo')
 >> texto de ejemplo\end{lstlisting}
 \item [round(x)] Redondea el valor de un número flotante x, por defecto redondea totalmente
-\begin{lstlisting}
+	\begin{lstlisting}[caption={round}]
 >> round(2.53)
 >> 3
 >> round(2.53,1)
 >> 2.5\end{lstlisting}
 \item [float(x)] Retorna el valor de x convertido en tipo número flotante, puede recibir íntegros o strings, siempre y cuando la string sea solo un número.
-\begin{lstlisting}
+	\begin{lstlisting}[caption={float}]
 >> float("2")
 >> 2.0\end{lstlisting}
 
 \item [int(x)] Retorna el valor íntegro de x, solo puede recibir variables del tipo float o string si es que esta es solo un int. Si utilizo la función int en el booleano "True" obtengo un 1, y si lo realizo en el booleano "False" obtengo un 0
-\begin{lstlisting}
+	\begin{lstlisting}[caption={int}]
 >> int(2.731)
 >> 2\end{lstlisting}
 
@@ -120,14 +120,14 @@ En Python pueden realizarse las operaciones básicas de matemáticas, utilizando
 
 \begin{multicols}{4}[Ejemplos]
 \noindent
-\begin{lstlisting}
+\begin{lstlisting}[caption={ }]
 >> 5+5
 >> 10
 >> "abc"+"def"
 >> "abcdef"\end{lstlisting}
 \vfill\null \columnbreak
 \noindent
-\begin{lstlisting}
+\begin{lstlisting}[caption={ }]
 >> 5-5
 >> 0
 >> 5*5
@@ -136,14 +136,14 @@ En Python pueden realizarse las operaciones básicas de matemáticas, utilizando
 \vfill\null \columnbreak
 \noindent
 
-\begin{lstlisting}	
+\begin{lstlisting}[caption={ }]	
 >> 5/5
 >> 1
 >> 5**5
 >> 125\end{lstlisting}
 \vfill\null \columnbreak
 
-\begin{lstlisting}
+\begin{lstlisting}[caption={ }]
 >> 25%4
 >> 1
 >> 25//4
@@ -153,20 +153,20 @@ En Python pueden realizarse las operaciones básicas de matemáticas, utilizando
 
 \subsection{Variables en Python}
 Las variables se utilizan para almacenar valores, los cuales pueden ser reutilizados luego, las variables también pueden almacenar el resultado de expresiones.
-\begin{lstlisting}
+\begin{lstlisting}[caption={Definicion de variable}]
 >> variables = 25 + 25
 >> variable
 >> 50\end{lstlisting}
 
 Si cambio el valor de una variable, esto afectara el valor de otras variables que la incluyan
-\begin{lstlisting}
+\begin{lstlisting}[caption={Definicion de variable}]
 >> variable1 = 25
 >> variable2 = variable1+25
 >> variable2
 >> 50
 \end{lstlisting}
 Al reasignar variable1 y volver a llamar a variable2
-\begin{lstlisting}
+\begin{lstlisting}[caption={}]
 >> variable1 = 50
 >> variable2
 >> 75\end{lstlisting}
