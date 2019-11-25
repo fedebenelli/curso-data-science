@@ -1,0 +1,28 @@
+\documentclass{article}
+
+\usepackage{enumerate}
+
+
+\title{Curso Data Science Python}
+\author{Federico E. Benelli}
+
+\begin{document}
+
+\maketitle
+
+\section{Modulo 2}
+
+\subsection{Metodos DataFrames}
+
+
+\begin{description}
+\item df.head()  Primeras filas
+df.tail()  Ultimas filas
+df = pd.read_csv(file, names = headers) Crea un dataframe del archivo csv, headers es una lista	
+df.columns = headers Devuelve lista de headers
+df.dropna(subset=['columna'], axis=0, inplace = True) Elimina una columna (creo)
+df.replace("?", np.nan, inplace = True) Reemplaza los datos faltantse por los NaN de numpy
+df.isnull() Devuleve DataFrame de True/False en los datos que sean nulos
+df.notnull()   Same
+\end{description}
+\end{document}
